@@ -5,15 +5,13 @@
  *      Author: ntc132
  */
 
-#include "Boundary.h"
-#include "Equations.h"
-#include "Grid.h"
+#include "Boundary.hpp"
+#include "Equations.hpp"
+#include "Grid.hpp"
 
-Boundary::Boundary(Grid& grid, Equations& equations) : grid(grid), equations(equations) {
+Boundary::Boundary(Grid& grid, Equations& equations) : grid(grid), equations(equations) {}
 
+Boundary::~Boundary()
+{
+  // TODO Auto-generated destructor stub
 }
-
-Boundary::~Boundary() {
-	// TODO Auto-generated destructor stub
-}
-

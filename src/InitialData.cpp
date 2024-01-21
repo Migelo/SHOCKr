@@ -5,16 +5,16 @@
  *      Author: ntc132
  */
 
-#include "Equations.h"
-#include "InitialData.h"
-#include "Grid.h"
+#include "InitialData.hpp"
+#include "Equations.hpp"
+#include "Grid.hpp"
 
-InitialData::InitialData(Grid& grid, Equations& equations) : grid(grid), equations(equations) {
-	// TODO Auto-generated constructor stub
-
+InitialData::InitialData(Grid& grid, Equations& equations) : grid(grid), equations(equations)
+{
+  // TODO Auto-generated constructor stub
 }
 
-InitialData::~InitialData() {
-	// TODO Auto-generated destructor stub
+InitialData::~InitialData()
+{
+  // TODO Auto-generated destructor stub
 }
-

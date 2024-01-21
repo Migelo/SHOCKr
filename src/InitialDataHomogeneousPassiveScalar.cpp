@@ -5,19 +5,20 @@
  *      Author: ntc132
  */
 
-#include "InitialDataHomogeneousPassiveScalar.h"
-#include "InitialData.h"
-#include "Equations.h"
-#include "EquationsEulerPassiveScalar.h"
+#include "InitialDataHomogeneousPassiveScalar.hpp"
+#include "Equations.hpp"
+#include "EquationsEulerPassiveScalar.hpp"
+#include "InitialData.hpp"
 
-void InitialDataHomogeneousPassiveScalar::setInitialData() {
-    InitialDataHomogeneous::setInitialData();
+void InitialDataHomogeneousPassiveScalar::setInitialData()
+{
+  InitialDataHomogeneous::setInitialData();
 
-    for(int i = 0; i < grid.nx + 2*grid.nGhost; i++)
-        grid.quantities[i][EquationsEulerPassiveScalar::PASS] = 0.;
+  for(int i = 0; i < grid.nx + 2 * grid.nGhost; i++)
+    grid.quantities[i][EquationsEulerPassiveScalar::PASS] = 0.;
 }
 
-InitialDataHomogeneousPassiveScalar::~InitialDataHomogeneousPassiveScalar() {
-	// TODO Auto-generated destructor stub
+InitialDataHomogeneousPassiveScalar::~InitialDataHomogeneousPassiveScalar()
+{
+  // TODO Auto-generated destructor stub
 }
-

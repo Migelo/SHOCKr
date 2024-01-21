@@ -5,16 +5,16 @@
  *      Author: ntc132
  */
 
-#include "Equations.h"
-#include "Grid.h"
-#include "Output.h"
+#include "Output.hpp"
+#include "Equations.hpp"
+#include "Grid.hpp"
 
-Output::Output(Grid& grid, Equations& equations) : grid(grid), equations(equations) {
-	// TODO Auto-generated constructor stub
-
+Output::Output(Grid& grid, Equations& equations) : grid(grid), equations(equations)
+{
+  // TODO Auto-generated constructor stub
 }
 
-Output::~Output() {
-	// TODO Auto-generated destructor stub
+Output::~Output()
+{
+  // TODO Auto-generated destructor stub
 }
-

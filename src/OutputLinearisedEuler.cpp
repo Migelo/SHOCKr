@@ -5,28 +5,33 @@
  *      Author: ntc132
  */
 
-#include "EquationsLinearisedEuler.h"
-#include "OutputLinearisedEuler.h"
+#include "OutputLinearisedEuler.hpp"
 #include <fstream>
-#include <string>
 #include <iostream>
+#include <string>
+#include "EquationsLinearisedEuler.hpp"
 
-void OutputLinearisedEuler::makeOutput(const std::string& filename){
-    std::ofstream outputFile(filename);
+void OutputLinearisedEuler::makeOutput(const std::string& filename)
+{
+  std::ofstream outputFile(filename);
 
-    if (!outputFile.is_open()) {
-        std::cerr << "Error opening file: " << filename << std::endl;
-        return;
+  if(!outputFile.is_open())
+    {
+      std::cerr << "Error opening file: " << filename << std::endl;
+      return;
     }
 
-    for (int i = 0; i <= grid.maxXIndex; i++) {
-        outputFile << grid.getX(i) << " " << grid.quantities[i][EquationsLinearisedEuler::DENS] << " " << grid.quantities[i][EquationsLinearisedEuler::VEL] << " " << grid.quantities[i][EquationsLinearisedEuler::PRESS] << std::endl;
+  for(int i = 0; i <= grid.maxXIndex; i++)
+    {
+      outputFile << grid.getX(i) << " " << grid.quantities[i][EquationsLinearisedEuler::DENS] << " "
+                 << grid.quantities[i][EquationsLinearisedEuler::VEL] << " " << grid.quantities[i][EquationsLinearisedEuler::PRESS]
+                 << std::endl;
     }
 
-    outputFile.close();
+  outputFile.close();
 }
 
-OutputLinearisedEuler::~OutputLinearisedEuler() {
-	// TODO Auto-generated destructor stub
+OutputLinearisedEuler::~OutputLinearisedEuler()
+{
+  // TODO Auto-generated destructor stub
 }
-

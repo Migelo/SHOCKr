@@ -5,27 +5,26 @@
  *      Author: ntc132
  */
 
-#include "EquationsEulerPassiveScalar.h"
+#include "EquationsEulerPassiveScalar.hpp"
 
-double* EquationsEulerPassiveScalar::getFlux(std::vector<double>& quantities) {
-	double* flux = new double[nCons()];
-	double* eulerFlux = EquationsEuler::getFlux(quantities);
+double* EquationsEulerPassiveScalar::getFlux(std::vector<double>& quantities)
+{
+  double* flux      = new double[nCons()];
+  double* eulerFlux = EquationsEuler::getFlux(quantities);
 
-	flux[DENS]   = eulerFlux[DENS];
-	flux[XMOM]   = eulerFlux[XMOM];
-	flux[ENERGY] = eulerFlux[ENERGY];
-	flux[PASS]   = quantities[PASS] * quantities[XMOM] / quantities[DENS];
+  flux[DENS]   = eulerFlux[DENS];
+  flux[XMOM]   = eulerFlux[XMOM];
+  flux[ENERGY] = eulerFlux[ENERGY];
+  flux[PASS]   = quantities[PASS] * quantities[XMOM] / quantities[DENS];
 
-	delete[] eulerFlux;
+  delete[] eulerFlux;
 
-	return flux;
+  return flux;
 }
 
-int EquationsEulerPassiveScalar::nCons(void){
-	return EquationsEuler::nCons() + 1;
-}
+int EquationsEulerPassiveScalar::nCons(void) { return EquationsEuler::nCons() + 1; }
 
-EquationsEulerPassiveScalar::~EquationsEulerPassiveScalar() {
-	// TODO Auto-generated destructor stub
+EquationsEulerPassiveScalar::~EquationsEulerPassiveScalar()
+{
+  // TODO Auto-generated destructor stub
 }
-

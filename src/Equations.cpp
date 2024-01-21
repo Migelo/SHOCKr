@@ -5,16 +5,10 @@
  *      Author: ntc132
  */
 
-#include "Equations.h"
+#include "Equations.hpp"
 
-int Equations::nCons(void){
-	return 3;
-}
+int Equations::nCons(void) { return 3; }
 
-Equations::Equations() {
+Equations::Equations() {}
 
-}
-
-Equations::~Equations() {
-}
-
+Equations::~Equations() {}

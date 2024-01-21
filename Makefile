@@ -41,7 +41,7 @@ SUBDIRS += .
 
 
 OBJS    += minihydro.o Boundary.o BoundaryWind.o BoundaryWindLinearisedEuler.o BoundaryWindPassiveScalar.o BoundaryZeroGradient.o Equations.o EquationsEuler.o EquationsEulerPassiveScalar.o EquationsLinearisedEuler.o Grid.o Grid1D.o GridRadial.o InitialData.o InitialDataHomogeneous.o InitialDataHomogeneousLinearisedEuler.o InitialDataHomogeneousPassiveScalar.o InitialDataIsothermal.o InitialDataSodShock.o Output.o OutputEuler.o OutputEulerPassiveScalar.o OutputLinearisedEuler.o RiemannSolver.o RiemannSolverHLLC.o RiemannSolverRusanov.o ShockFinder.o ShockFinderEulerPassiveScalar.o
-INCL    +=             Boundary.h BoundaryWind.h BoundaryWindLinearisedEuler.h BoundaryWindPassiveScalar.h BoundaryZeroGradient.h Equations.h EquationsEuler.h EquationsEulerPassiveScalar.h EquationsLinearisedEuler.h Grid.h Grid1D.h GridRadial.h InitialData.h InitialDataHomogeneous.h InitialDataHomogeneousLinearisedEuler.h InitialDataHomogeneousPassiveScalar.h InitialDataIsothermal.h InitialDataSodShock.h Output.h OutputEuler.h OutputEulerPassiveScalar.h OutputLinearisedEuler.h RiemannSolver.h RiemannSolverHLLC.h RiemannSolverRusanov.h ShockFinder.h ShockFinderEulerPassiveScalar.h
+INCL    +=             Boundary.hpp BoundaryWind.hpp BoundaryWindLinearisedEuler.hpp BoundaryWindPassiveScalar.hpp BoundaryZeroGradient.hpp Equations.hpp EquationsEuler.hpp EquationsEulerPassiveScalar.hpp EquationsLinearisedEuler.hpp Grid.hpp Grid1D.hpp GridRadial.hpp InitialData.hpp InitialDataHomogeneous.hpp InitialDataHomogeneousLinearisedEuler.hpp InitialDataHomogeneousPassiveScalar.hpp InitialDataIsothermal.hpp InitialDataSodShock.hpp Output.hpp OutputEuler.hpp OutputEulerPassiveScalar.hpp OutputLinearisedEuler.hpp RiemannSolver.hpp RiemannSolverHLLC.hpp RiemannSolverRusanov.hpp ShockFinder.hpp ShockFinderEulerPassiveScalar.hpp
 
 ################################
 #determine the needed libraries#
@@ -61,8 +61,8 @@ LIBS = $(MATH_LIBS) $(HDF5_LIBS) $(GSL_LIBS) $(MPI_LIBS) $(FFTW_LIBS)
 
 
 SUBDIRS := $(addprefix $(BUILD_DIR)/,$(SUBDIRS))
-OBJS := $(addprefix $(BUILD_DIR)/,$(OBJS)) 
-INCL := $(addprefix $(SRC_DIR)/,$(INCL)) 
+OBJS := $(addprefix $(BUILD_DIR)/,$(OBJS))
+INCL := $(addprefix $(SRC_DIR)/,$(INCL))
 
 
 ################
