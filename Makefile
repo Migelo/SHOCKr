@@ -20,8 +20,8 @@ $(info )
 #define available Systems#
 ##########################
 
-NCC       =  g++ -g -O3 -Wall -std=c++17
-CPP       =  g++ -g -O3 -Wall -std=c++17
+NCC       =  g++ -g -O3 -march=native -Wall -std=c++17
+CPP       =  g++ -g -O3 -march=native -Wall -std=c++17
 # GSL_INCL   = -I/opt/local/include
 # GSL_LIBS   = -L/opt/local/lib
 # HDF5_INCL  = -I/usr/lib/x86_64-linux-gnu/hdf5/serial/include
