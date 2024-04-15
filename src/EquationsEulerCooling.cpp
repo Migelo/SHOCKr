@@ -10,6 +10,7 @@
 #include <sstream>
 #include <vector>
 #include <string>
+#include <cmath>
 
 #include "EquationsEulerCooling.h"
 
