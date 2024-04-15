@@ -10,6 +10,7 @@
 #include "EquationsEuler.h"
 #include "Grid.h"
 
+#include <cmath>
 #include <iostream>
 #include <cstdio>
 
@@ -80,13 +81,13 @@ void BoundaryWind::doSubsonicWindGross(int i){
 
 
 double BoundaryWind::getSoundSpeed(double gamma, double density, double pressure){
-	if (density == 0)
-        throw std::invalid_argument("Wind density cannot be zero.");
+	if (density <= 0)
+        throw std::invalid_argument("Wind density must be positive.");
 
 	return std::sqrt(gamma * pressure / density);
 }
 
-std::vector<double> BoundaryWind::matrixMultiply(std::vector<std::vector<double> > matrix, std::vector<double> vector){
+std::vector<double> BoundaryWind::matrixMultiply(const std::vector<std::vector<double> >& matrix, const std::vector<double>& vector){
 	std::vector<double> product (3, 0.0);
 
 	for(int i = 0; i <= 2; i++)

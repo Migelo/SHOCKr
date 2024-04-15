@@ -27,7 +27,7 @@ protected:
 
 	void doSupersonicWind(int i);
 	double getSoundSpeed(double gamma, double density, double pressure);
-	std::vector<double> matrixMultiply(std::vector<std::vector<double> > matrix, std::vector<double> vector);
+	std::vector<double> matrixMultiply(const std::vector<std::vector<double> >& matrix, const std::vector<double>& vector);
 };
 
 #endif /* SRC_BOUNDARYWINDTMP_H_ */
