@@ -7,6 +7,8 @@
 #include <vector>
 #include "Equations.h"
 
+#include <Kokkos_Core.hpp>
+
 #ifndef SRC_GRID_H_
 #define SRC_GRID_H_
 
@@ -21,8 +23,8 @@ public:
 	int nGhost;
 	int nx;
 
-	std::vector<std::vector<double> > quantities;
-	std::vector<std::vector<double> > fluxes;
+	Kokkos::View<double**> quantities;
+	Kokkos::View<double**> fluxes;
 
 	double getX(int cellIndex){
 		return xmin + (cellIndex - minXIndex) * dx + dx/2.;

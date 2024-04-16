@@ -4,8 +4,10 @@
  *  Created on: 16 Dec 2023
  *      Author: Tiago Costa
  */
-
+#include <Kokkos_Core.hpp>
 #include "SimulationDependencies.h"
+#include <cstdio>
+#include <typeinfo>
 
 SimulationConfig config("config.txt");
 
@@ -20,11 +22,28 @@ ShockFinder *shockfinder               = new ShockFinderEuler(*grid, *equations)
 void doGreeting();
 void freeMemory();
 
-int main(){
+
+struct hello_world {
+  KOKKOS_INLINE_FUNCTION
+  void operator()(const int i) const {
+    Kokkos::printf("Hello from i = %i\n", i);
+  }
+};
+
+
+int main(int argc, char* argv[]) {
+	
+	Kokkos::initialize(argc, argv);
+  	printf("Hello World on Kokkos execution space %s\n",
+	typeid(Kokkos::DefaultExecutionSpace).name());
+
+	Kokkos::parallel_for("HelloWorld", 15, hello_world());
+
+	// You must call finalize() after you are done using Kokkos.
 	std::string outputFilename = "output_hllc.txt";
 	std::string outputEnergy = "energy.txt";
 
-	double CFL = 0.3;
+	constexpr double CFL = 0.3;
 	double maxTime = config.maxTime;
 	double outputTimeInterval = config.outputTimeInterval;
 
@@ -66,6 +85,7 @@ int main(){
 	freeMemory();
 
 	std::cout << "All done." << std::endl;
+	Kokkos::finalize();
 	return 0;
 }
 
